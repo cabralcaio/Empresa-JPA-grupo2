@@ -51,7 +51,7 @@ public class EmpregadoService {
         return this.empregadoRepository.save(empregadoAtual);
     }
 
-    public void deleltar(Integer idEmpregado) {
+    public void deletar(Integer idEmpregado) {
         Empregado empregado = this.getEmpegado(idEmpregado);
         this.empregadoRepository.delete(empregado);
     }
