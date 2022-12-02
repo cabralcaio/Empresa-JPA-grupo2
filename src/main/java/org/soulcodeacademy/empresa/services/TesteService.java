@@ -31,13 +31,13 @@ public class TesteService {
 
     @PostConstruct
     public void testarEntidades() {
-        Empregado empregado1 = new Empregado(null, "José Carlos", "jc@gmail.com", 7000.0);
-        Empregado empregado2 = new Empregado(null, "José Antonio", "ja@gmail.com", 8500.0);
-        Empregado empregado3 = new Empregado(null, "Cláudio José", "cj@gmail.com", 8500.0);
-
         Endereco endereco1 = new Endereco(null, "Ubajara", "CE");
         Endereco endereco2 = new Endereco(null, "São Paulo", "SP");
         Endereco endereco3 = new Endereco(null, "São Paulo", "SP");
+
+        Empregado empregado1 = new Empregado(null, "José Carlos", "jc@gmail.com", 7000.0, endereco1);
+        Empregado empregado2 = new Empregado(null, "José Antonio", "ja@gmail.com", 8500.0, endereco2);
+        Empregado empregado3 = new Empregado(null, "Cláudio José", "cj@gmail.com", 8500.0, endereco3);
 
         // Associação 1:1
         empregado1.setEndereco(endereco1);
