@@ -1,4 +1,4 @@
-package org.soulcodeacademy.empresa.domain.controller;
+package org.soulcodeacademy.empresa.controller;
 
 import org.soulcodeacademy.empresa.domain.Projeto;
 import org.soulcodeacademy.empresa.domain.dto.ProjetoDTO;
