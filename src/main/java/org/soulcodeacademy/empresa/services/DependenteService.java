@@ -16,6 +16,7 @@ public class DependenteService {
         private DependenteRepository dependenteRepository;
 
         public List<Dependente> listarTodos() {
+
                 return this.dependenteRepository.findAll();
         }
 
