@@ -21,8 +21,11 @@ public class ProjetoService {
 
     public Projeto getProjeto(Integer idProjeto) {
         Optional<Projeto> projeto = this.projetoRepository.findById(idProjeto);
-
-        return null;
+        if (projeto.isEmpty()) {
+            throw new RuntimeException("Projeto não encontrado");
+        } else {
+            return projeto.get();
+        }
     }
 
     public Projeto salvar(ProjetoDTO dto) {
