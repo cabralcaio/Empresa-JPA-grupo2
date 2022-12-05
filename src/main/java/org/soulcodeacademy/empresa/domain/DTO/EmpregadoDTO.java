@@ -5,6 +5,7 @@ import org.soulcodeacademy.empresa.domain.Endereco;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 public class EmpregadoDTO {
 
@@ -14,12 +15,12 @@ public class EmpregadoDTO {
     @NotBlank(message = "Email é obrigaótio")
     private String email;
 
-    @NotBlank(message = "Salario é obritório" )
+    @NotNull(message = "Salario é obritório" )
     @Min(value = 1200, message = "Salario obrigatório")
     @Max(value = 30000, message = "Salario obrigatório")
     private Double salario;
 
-    @NotBlank(message = "Endereço é obrigtório")
+    @NotNull(message = "Endereço é obrigtório")
     private Endereco endereco;
 
     public String getNome() {

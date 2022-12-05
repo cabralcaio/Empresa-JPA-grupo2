@@ -30,7 +30,7 @@ public class EmpregadoController {
         return empregado;
     }
 
-    @PutMapping("/funcionarios/{idFuncionario}")
+    @PutMapping("/empregados/{idEmpregado}")
     public Empregado atualizar(@PathVariable Integer idFuncionario, @Valid @RequestBody EmpregadoDTO dto) {
         Empregado atualizado = this.empregadoService.atualizar(idFuncionario, dto);
         return atualizado;

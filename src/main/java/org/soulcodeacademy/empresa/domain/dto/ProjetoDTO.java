@@ -1,15 +1,16 @@
-package org.soulcodeacademy.empresa.domain.dto;
+package org.soulcodeacademy.empresa.domain.DTO;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 public class ProjetoDTO {
 
     @NotBlank(message = "Campo obrigatório")
     private String nome;
 
-    @NotBlank(message = "Campo obrigatório")
+    @NotNull(message = "Campo obrigatório")
     @Min(value = 0, message = "campo orçamento obrigatorio")
     @Max(value = 5000, message = "campo orçamento obrigatorio")
     private Double orcamento;
