@@ -27,14 +27,12 @@ public class EnderecoController {
 
     @PostMapping("/endereco")
     public Endereco salvar(@Valid @RequestBody EnderecoDTO dto){
-        Endereco endereco = this.enderecoService.salvar(dto);
-        return endereco;
+        return enderecoService.salvar(dto);
     }
 
     @PutMapping("/endereco/{idEndereco}")
     public Endereco  atualizar(@PathVariable Integer idEndereco, @Valid @RequestBody EnderecoDTO dto){
-        Endereco atualizado = this.enderecoService.atualizar(idEndereco, dto);
-        return atualizado;
+        return enderecoService.atualizar(idEndereco, dto);
     }
 
     @DeleteMapping("/endereco/{idCliente}")

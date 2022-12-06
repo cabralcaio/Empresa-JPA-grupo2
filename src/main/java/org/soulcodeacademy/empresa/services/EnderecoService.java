@@ -2,6 +2,7 @@ package org.soulcodeacademy.empresa.services;
 
 import org.soulcodeacademy.empresa.domain.DTO.EnderecoDTO;
 import org.soulcodeacademy.empresa.domain.Endereco;
+import org.soulcodeacademy.empresa.exceptions.EnderecoNotFoundException;
 import org.soulcodeacademy.empresa.repositories.EnderecoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,21 +21,15 @@ public class EnderecoService {
     }
 
 
-    public Endereco getEndereco(Integer idEndereco){
-        Optional<Endereco> endereco = this.enderecoRepository.findById(idEndereco);
-
-        if (endereco.isEmpty()){
-            throw new RuntimeException("Endereço não encontrado! ");
-        } else {
-            return endereco.get();
-        }
+    public Endereco getEndereco(Integer idEndereco) {
+        return enderecoRepository.findById(idEndereco)
+                .orElseThrow(() -> new EnderecoNotFoundException(idEndereco));
     }
 
     public Endereco salvar (EnderecoDTO dto){
 
         Endereco endereco = new Endereco(null, dto.getCidade(), dto.getUf());
-        Endereco enderecoSalvo = this.enderecoRepository.save(endereco);
-        return enderecoSalvo;
+        return this.enderecoRepository.save(endereco);
     }
 
     public Endereco atualizar( Integer idEndereco, EnderecoDTO dto){
@@ -42,8 +37,7 @@ public class EnderecoService {
 
         enderecoAtual.setCidade(dto.getCidade());
         enderecoAtual.setUf(dto.getUf());
-        Endereco atualizado = this.enderecoRepository.save(enderecoAtual);
-        return atualizado;
+        return this.enderecoRepository.save(enderecoAtual);
     }
 
     public void deletar (Integer idEndereco){
