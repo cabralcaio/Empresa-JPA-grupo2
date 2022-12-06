@@ -32,13 +32,13 @@ public class EmpregadoController {
     }
 
     @PutMapping("/{idEmpregado}")
-    public Empregado atualizar(@PathVariable Integer idFuncionario, @Valid @RequestBody EmpregadoDTO dto) {
-        Empregado atualizado = this.empregadoService.atualizar(idFuncionario, dto);
+    public Empregado atualizar(@PathVariable Integer idEmpregado, @Valid @RequestBody EmpregadoDTO dto) {
+        Empregado atualizado = this.empregadoService.atualizar(idEmpregado, dto);
         return atualizado;
     }
 
     @DeleteMapping("/{idEmpregado}")
-    public void deletar(@PathVariable Integer idFuncionario) {
-        this.empregadoService.deletar(idFuncionario);
+    public void deletar(@PathVariable Integer idEmpregado) {
+        this.empregadoService.deletar(idEmpregado);
     }
 }
