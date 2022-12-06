@@ -1,5 +1,8 @@
 package org.soulcodeacademy.empresa.domain.DTO;
 
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import org.soulcodeacademy.empresa.domain.Endereco;
 
 import javax.validation.constraints.Max;
@@ -7,6 +10,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class EmpregadoDTO {
 
     @NotBlank(message = "Nome é obrigatório")
@@ -20,8 +24,8 @@ public class EmpregadoDTO {
     @Max(value = 30000, message = "Salario obrigatório")
     private Double salario;
 
-    @NotNull(message = "Endereço é obrigtório")
-    private Endereco endereco;
+    @NotNull(message = "Endereço é obrigatório")
+    private Integer idEndereco;
 
     public String getNome() {
         return nome;
@@ -47,11 +51,11 @@ public class EmpregadoDTO {
         this.salario = salario;
     }
 
-    public Endereco getEndereco() {
-        return endereco;
+    public Integer getIdEndereco() {
+        return idEndereco;
     }
 
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
+    public void setIdEndereco(Integer idEndereco) {
+        this.idEndereco = idEndereco;
     }
 }

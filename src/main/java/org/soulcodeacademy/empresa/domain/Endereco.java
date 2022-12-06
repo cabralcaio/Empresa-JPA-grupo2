@@ -22,6 +22,10 @@ public class Endereco {
         this.uf = uf;
     }
 
+    public Endereco(Integer idEndereco) {
+        this.idEndereco = idEndereco;
+    }
+
     public Integer getIdEndereco() {
         return idEndereco;
     }

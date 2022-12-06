@@ -10,33 +10,34 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
+@RequestMapping("/empregados")
 public class EmpregadoController {
     @Autowired
     private EmpregadoService empregadoService;
 
-    @GetMapping("/empregados")
+    @GetMapping
     public List<Empregado> empregados() {
         return this.empregadoService.list();
     }
 
-    @GetMapping("/empregado/{idEmpregado}")
+    @GetMapping("/{idEmpregado}")
     public Empregado getEmpregado(@PathVariable Integer idEmpregado) {
         return this.empregadoService.getEmpegado(idEmpregado);
     }
 
-    @PostMapping("/empregado")
+    @PostMapping
     public Empregado salvar(@Valid @RequestBody EmpregadoDTO dto) {
         Empregado empregado = this.empregadoService.salvar(dto);
         return empregado;
     }
 
-    @PutMapping("/empregados/{idEmpregado}")
+    @PutMapping("/{idEmpregado}")
     public Empregado atualizar(@PathVariable Integer idFuncionario, @Valid @RequestBody EmpregadoDTO dto) {
         Empregado atualizado = this.empregadoService.atualizar(idFuncionario, dto);
         return atualizado;
     }
 
-    @DeleteMapping("/empregados/{idEmpregado}")
+    @DeleteMapping("/{idEmpregado}")
     public void deletar(@PathVariable Integer idFuncionario) {
         this.empregadoService.deletar(idFuncionario);
     }

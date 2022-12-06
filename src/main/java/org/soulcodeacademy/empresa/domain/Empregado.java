@@ -30,6 +30,14 @@ public class Empregado {
     public Empregado() {
     }
 
+    public Empregado(Integer idEmpregado, String nome, String email, Double salario, Integer idEndereco) {
+        this.idEmpregado = idEmpregado;
+        this.nome = nome;
+        this.email = email;
+        this.salario = salario;
+        this.endereco = new Endereco(idEndereco);
+    }
+
     public Empregado(Integer idEmpregado, String nome, String email, Double salario, Endereco endereco) {
         this.idEmpregado = idEmpregado;
         this.nome = nome;
